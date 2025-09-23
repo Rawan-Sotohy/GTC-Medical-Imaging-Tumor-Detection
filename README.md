@@ -56,3 +56,42 @@ The dataset comes from Kaggle.
 
 ### 8. Data Augmentation
 We apply slight brightness adjustment, horizontal flipping, and random rotation within ±15°
+
+---
+## Model Training
+We experimented with different models for brain tumor classification:
+
+### 1️⃣ SVM on Extracted Features
+- **Input:** Flattened features from images  
+- **Scaling:** StandardScaler  
+- **Kernel:** Linear  
+- **Test Accuracy:** 0.6625  
+- **Strengths:** Fast to train, simple baseline  
+- **Weaknesses:** Limited performance compared to CNNs
+
+### 2️⃣ CNN from Scratch
+- **Input Size:** 128×128×3  
+- **Layers:** 2 Conv layers + MaxPooling, 1 Dense (128) + Dropout 0.5  
+- **Epochs:** 10  
+- **Test Accuracy:** 0.9603
+- **Strengths:** Simple, relatively fast, good performance  
+- **Weaknesses:** Might underperform on larger datasets
+
+### 3️⃣ MobileNetV2 (Transfer Learning)
+- **Input Size:** 128×128×3  
+- **Pretrained on:** ImageNet  
+- **Trainable Layers:** Top classifier only  
+- **Epochs:** 10  
+- **Test Accuracy:** 0.8764  
+- **Strengths:** Lightweight, fast training, good accuracy  
+- **Weaknesses:** Slightly lower performance than CNN from scratch in this dataset
+
+### 4️⃣ ResNet50 (Transfer Learning)
+- **Input Size:** 224×224×3  
+- **Pretrained on:** ImageNet  
+- **Trainable Layers:** Top classifier only  
+- **Epochs:** 10  
+- **Test Accuracy:** 0.6346 
+- **Strengths:** Very accurate on large datasets  
+- **Weaknesses:** Very slow, high GPU/memory requirements  
+
