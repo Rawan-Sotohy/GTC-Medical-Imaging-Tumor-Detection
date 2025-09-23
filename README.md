@@ -58,40 +58,67 @@ The dataset comes from Kaggle.
 We apply slight brightness adjustment, horizontal flipping, and random rotation within ±15°
 
 ---
-## Model Training
-We experimented with different models for brain tumor classification:
+## 🧪 Model Training
+
+We experimented with different models for **brain tumor classification**:
+
+---
 
 ### 1️⃣ SVM on Extracted Features
 - **Input:** Flattened features from images  
 - **Scaling:** StandardScaler  
 - **Kernel:** Linear  
-- **Test Accuracy:** 0.6625  
+- **Test Accuracy:** **0.65**  
 - **Strengths:** Fast to train, simple baseline  
-- **Weaknesses:** Limited performance compared to CNNs
+- **Weaknesses:** Limited performance compared to CNNs  
+
+---
 
 ### 2️⃣ CNN from Scratch
 - **Input Size:** 128×128×3  
-- **Layers:** 2 Conv layers + MaxPooling, 1 Dense (128) + Dropout 0.5  
+- **Architecture:**  
+  - 2× Conv2D layers + MaxPooling  
+  - 1× Dense(128) + Dropout(0.5)  
 - **Epochs:** 10  
-- **Test Accuracy:** 0.9603
-- **Strengths:** Simple, relatively fast, good performance  
-- **Weaknesses:** Might underperform on larger datasets
+- **Test Accuracy:** **0.9550**  
+- **Classification Report:**
+  - Glioma → Precision: 0.92, Recall: 0.94, F1: 0.93  
+  - Meningioma → Precision: 0.92, Recall: 0.88, F1: 0.90  
+  - No Tumor → Precision: 0.98, Recall: 1.00, F1: 0.99  
+  - Pituitary → Precision: 1.00, Recall: 0.98, F1: 0.99  
+
+- **Strengths:** Simple, relatively fast, very high accuracy  
+- **Weaknesses:** May not generalize as well to much larger/complex datasets  
+
+---
 
 ### 3️⃣ MobileNetV2 (Transfer Learning)
 - **Input Size:** 128×128×3  
 - **Pretrained on:** ImageNet  
 - **Trainable Layers:** Top classifier only  
 - **Epochs:** 10  
-- **Test Accuracy:** 0.8764  
-- **Strengths:** Lightweight, fast training, good accuracy  
-- **Weaknesses:** Slightly lower performance than CNN from scratch in this dataset
+- **Test Accuracy:** **0.8769**  
+- **Strengths:** Lightweight, efficient, reasonable accuracy  
+- **Weaknesses:** Lower performance than custom CNN on this dataset  
 
-### 4️⃣ ResNet50 (Transfer Learning)
-- **Input Size:** 224×224×3  
-- **Pretrained on:** ImageNet  
-- **Trainable Layers:** Top classifier only  
-- **Epochs:** 10  
-- **Test Accuracy:** 0.6346 
-- **Strengths:** Very accurate on large datasets  
-- **Weaknesses:** Very slow, high GPU/memory requirements  
+---
 
+## 📊 Detailed Model Results (Per Class)
+
+| Model / Class      | Precision | Recall | F1-Score |
+|--------------------|-----------|--------|----------|
+| **SVM (Linear)**   |           |        |          |
+| Glioma             | 0.62      | 0.60   | 0.61     |
+| Meningioma         | 0.54      | 0.68   | 0.60     |
+| No Tumor           | 0.84      | 0.53   | 0.65     |
+| Pituitary          | 0.70      | 0.80   | 0.74     |
+| **CNN (Scratch)**  |           |        |          |
+| Glioma             | 0.92      | 0.94   | 0.93     |
+| Meningioma         | 0.92      | 0.88   | 0.90     |
+| No Tumor           | 0.98      | 1.00   | 0.99     |
+| Pituitary          | 1.00      | 0.98   | 0.99     |
+| **MobileNetV2 (TL)** |         |        |          |
+| Glioma             | 0.92      | 0.86   | 0.89     |
+| Meningioma         | 0.88      | 0.64   | 0.74     |
+| No Tumor           | 0.87      | 0.99   | 0.92     |
+| Pituitary          | 0.84      | 0.89   | 0.91     |
