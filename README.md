@@ -115,5 +115,10 @@ This is the easiest way to run the project without local setup:
 * [Sama Samer](https://github.com/sama-samer)
 
 ---
+## 🎬 Media & Presentation
+
+- **Demo Video** [Watch the Video](https://drive.google.com/file/d/195qkB3LRQRwshlQFP4yz762AaIWsXiz8/view?usp=sharing)
+- **Presentation:** [View the Presentation](https://www.canva.com/design/DAGz-t3wV2k/Ugsqc22FZj6EBGOxhOa9Cg/edit?utm_content=DAGz-t3wV2k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+---
 
 **This project was developed under the supervision of GTC.**
