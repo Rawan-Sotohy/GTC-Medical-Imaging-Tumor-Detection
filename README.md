@@ -117,7 +117,7 @@ This is the easiest way to run the project without local setup:
 ---
 ## 🎬 Media & Presentation
 
-- **Demo Video** [Watch the Video]([https://drive.google.com/file/d/195qkB3LRQRwshlQFP4yz762AaIWsXiz8/view?usp=sharing](https://drive.google.com/file/d/10gHk87adc20HMj3J8ibwIQ5P1Wr7nGOx/view?usp=drive_link))
+- **Demo Video** [Watch the Video](https://drive.google.com/file/d/10gHk87adc20HMj3J8ibwIQ5P1Wr7nGOx/view?usp=drive_link)
 - **Presentation:** [View the Presentation](https://www.canva.com/design/DAGz-t3wV2k/Ugsqc22FZj6EBGOxhOa9Cg/edit?utm_content=DAGz-t3wV2k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 ---
 
